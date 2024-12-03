@@ -4,7 +4,8 @@
 
     [ApiController]
     [Route("api/[controller]")]
-    public abstract class ObservableControllerBase(ILogger<ObservableControllerBase> logger) : ControllerBase
+    public abstract class ObservableControllerBase(ILogger<ObservableControllerBase> logger)
+        : ControllerBase
     {
         protected ILogger<ObservableControllerBase> Logger { get; set; } = logger;
     }

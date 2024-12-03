@@ -1,33 +1,31 @@
 ﻿namespace JCystems.SemanticWebApp.Controllers
 {
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Bot.Schema;
 
-    [Route("api/messages")]
-    /// <seealso href="https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Controllers/BotController.cs"/>
+    /// <seealso href="https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Controllers/BotControllerBase.cs"/>
     /// <![CDATA[NOTE]]>
     /// This ASP Controller is created to handle a request. 
     /// Dependency Injection will provide the Adapter and IBot implementation at runtime. 
     /// Multiple different IBot implementations running at different endpoints can be achieved 
     /// by specifying a more specific type for the bot constructor argument.
     /// <![CDATA[NOTE]]>
-    public class BotController(
-        ILogger<BotController> logger,
+    public abstract class BotControllerBase(
+        ILogger<BotControllerBase> logger,
         IBot bot,
-        IBotFrameworkHttpAdapter adapter) : ObservableControllerBase(logger)
+        IBotFrameworkHttpAdapter adapter)
+          : ObservableControllerBase(logger)
     {
         protected IBotFrameworkHttpAdapter BotFrameworkHttpAdapter { get; } = adapter;
 
         protected IBot Bot { get; } = bot;
 
-        [HttpGet] // NOTE: Only for websockets
         [HttpPost]
-        public async Task PostAsync([FromBody] Activity activity)
+        [HttpGet] // NOTE: Only for websockets
+        public async Task PostAsync()
         {
-            this.Logger.LogInformation("{1}.{2}()...", nameof(BotController), nameof(this.PostAsync));
+            // this.Logger.LogInformation("{1}.{2}()...", nameof(BotControllerBase), nameof(this.PostAsync));
 
             // Delegate the processing of the HTTP POST to the adapter.
             // The adapter will invoke the bot.

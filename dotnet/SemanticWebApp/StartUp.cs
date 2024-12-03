@@ -38,7 +38,7 @@
 
             services
                 .Scan(scan => scan
-                    .FromAssemblyOf<BotController>()
+                    .FromAssemblyOf<BotControllerBase>()
                         .AddClasses()
                             .AsImplementedInterfaces()
                             .WithTransientLifetime()

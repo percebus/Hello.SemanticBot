@@ -1,0 +1,37 @@
+POST http://localhost:3978/api/messages
+
+content-type: application/json
+
+{
+    "type": "conversationUpdate",
+    "membersAdded": [
+    {
+        "id": "4c7bb2e0-b1ca-11ef-a0db-f10fdae55fb1",
+        "name": "Bot"
+    },
+    {
+        "id": "4aec37c4-94ad-473c-823a-46af1bcfc4d9",
+        "name": "User"
+    }
+    ],
+    "membersRemoved": [],
+    "channelId": "emulator",
+    "conversation": {
+        "id": "99ab1150-b1ca-11ef-a0db-f10fdae55fb1|livechat"
+    },
+    "id": "99b21630-b1ca-11ef-9fcc-8978c86447b5",
+    "localTimestamp": "2024-12-03T17:01:59-06:00",
+    "recipient": {
+        "id": "4c7bb2e0-b1ca-11ef-a0db-f10fdae55fb1",
+        "name": "Bot",
+        "role": "bot"
+    },
+    "timestamp": "2024-12-03T23:01:59.187Z",
+    "from": {
+        "id": "4aec37c4-94ad-473c-823a-46af1bcfc4d9",
+        "name": "User",
+        "role": "user"
+    },
+    "locale": "",
+    "serviceUrl": "http://localhost:56821"
+}

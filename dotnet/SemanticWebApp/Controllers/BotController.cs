@@ -4,6 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
+    using Microsoft.Bot.Schema;
 
     [Route("api/messages")]
     /// <seealso href="https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Controllers/BotController.cs"/>
@@ -24,7 +25,7 @@
 
         [HttpGet] // NOTE: Only for websockets
         [HttpPost]
-        public async Task PostAsync()
+        public async Task PostAsync([FromBody] Activity activity)
         {
             this.Logger.LogInformation("{1}.{2}()...", nameof(BotController), nameof(this.PostAsync));
 

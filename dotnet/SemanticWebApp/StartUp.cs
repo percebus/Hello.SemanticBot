@@ -18,15 +18,11 @@
                 .AddHttpClient()
                 .AddEndpointsApiExplorer()
                 .AddSwaggerGen()
-                .AddControllers();
-
-            // TODO? FIXME?
-            // services
-            //    .AddNewtonsoftJson(options =>
-            //    {
-            //        options.SerializerSettings.MaxDepth = HttpHelper.BotMessageSerializerSettings.MaxDepth;
-            //    });
-
+                .AddControllers()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.MaxDepth = HttpHelper.BotMessageSerializerSettings.MaxDepth;
+                });
 
             services
                 .AddSingleton<BotFrameworkAuthentication, ConfigurationBotFrameworkAuthentication>() // Create the Bot Framework Authentication to be used with the Bot Adapter.
@@ -51,9 +47,9 @@
             if (env.IsDevelopment())
             {
                 app
-                    .UseDeveloperExceptionPage()
                     .UseSwagger()
-                    .UseSwaggerUI();
+                    .UseSwaggerUI()
+                    .UseDeveloperExceptionPage();
             }
 
             app

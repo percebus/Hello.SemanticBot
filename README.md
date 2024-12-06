@@ -36,5 +36,9 @@ TBD
 
 ## Resources
 
-- [Configure a Bot Framework skill for use in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-add-skills)
 - [Bot Framework Solutions Documentation](https://microsoft.github.io/botframework-solutions/index#tutorials)
+
+### MSLearn
+
+- [Configure a Bot Framework skill for use in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-add-skills)
+- [Test and debug with the Emulator](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0&tabs=csharp)
